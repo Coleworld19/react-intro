@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import About from './views/About';
 import Home from './views/Home';
+import Kekambas from './views/Kekambas';
 
 export default class App extends Component {
   constructor(){
@@ -35,6 +36,19 @@ export default class App extends Component {
   }
 
 
+  componentDidMount(){
+    // console.log('Component did mount');
+    fetch('https://kekambas-bs.herokuapp.com/kekambas.')
+      .then(res => res.json())
+      .then(data => {
+        this.setState(
+          {names: data}
+        )
+      })
+
+  }
+
+
 
   render() {
     console.log(this.state)
@@ -48,6 +62,9 @@ export default class App extends Component {
             </Route>
             <Route exact path='/about'>
               <About />
+            </Route>
+            <Route exact path='/Contact'>
+              <Contact n={this.state.names} />
             </Route>
           </Switch>
           <h1>{this.state.name}</h1>

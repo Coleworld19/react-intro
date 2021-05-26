@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DriverInfo from '../components/DriverInfo'
+import Names from '../components/Names'
 
 export default class Home extends Component {
 
@@ -29,3 +30,6 @@ export default class Home extends Component {
         )
     }
 }
+
+
+
